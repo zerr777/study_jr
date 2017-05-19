@@ -12,6 +12,11 @@ public class Solution {
     }
 
     public static boolean isDateOdd(String date) {
-        return true;
+        boolean isOdd = false;
+        Date data = new Date(date);
+        Date newYearDate = new Date(data.getYear(), 0, 1);
+        long delay =  (data.getTime() - newYearDate.getTime())/(24*60*60*1000);
+        if(delay % 2 == 0) isOdd = true;
+        return isOdd;
     }
 }
