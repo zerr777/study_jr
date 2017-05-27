@@ -24,6 +24,8 @@ public class Solution {
     }
 
     public static int safeGetElement(ArrayList<Integer> list, int index, int defaultValue) {
+
+        return 0;
         //напишите тут ваш код
     }
 
