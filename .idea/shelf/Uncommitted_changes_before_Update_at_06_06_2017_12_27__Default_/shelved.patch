@@ -1,0 +1,142 @@
+Index: 2.JavaCore/src/com/javarush/task/task14/task1404/Solution.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.javarush.task.task14.task1404;\n\n/* \nКоты\n*/\n\npublic class Solution {\n    public static void main(String[] args) throws Exception {\n        //напишите тут ваш код\n    }\n\n    static class CatFactory {\n        static Cat getCatByKey(String key) {\n            Cat cat = null;\n            if (\"vaska\".equals(key)) {\n                cat = new MaleCat(\"Василий\");\n            } else if (\"murka\".equals(key)) {\n                cat = new FemaleCat(\"Мурочка\");\n            } else if (\"kiska\".equals(key)) {\n                cat = new FemaleCat(\"Кисюлька\");\n            } else {\n                cat = new Cat(key);\n            }\n            return cat;\n        }\n    }\n\n    static class Cat {\n        private String name;\n\n        protected Cat(String name) {\n            this.name = name;\n        }\n\n        public String getName() {\n            return this.name;\n        }\n\n        public String toString() {\n            return \"Я уличный кот \" + getName();\n        }\n    }\n\n    static class MaleCat extends Cat {\n        MaleCat(String name) {\n            super(name);\n        }\n\n        public String toString() {\n            return \"Я - солидный кошак по имени \" + getName();\n        }\n    }\n\n    static class FemaleCat extends Cat {\n        FemaleCat(String name) {\n            super(name);\n        }\n\n        public String toString() {\n            return \"Я - милая кошечка по имени \" + getName();\n        }\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- 2.JavaCore/src/com/javarush/task/task14/task1404/Solution.java	(revision 6e47b8ae241ecc96c12edb9b8c9d4011ce0d9b64)
++++ 2.JavaCore/src/com/javarush/task/task14/task1404/Solution.java	(revision )
+@@ -4,8 +4,18 @@
+ Коты
+ */
+ 
++import java.io.BufferedReader;
++import java.io.InputStreamReader;
++
+ public class Solution {
+     public static void main(String[] args) throws Exception {
++        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
++        String s = reader.readLine();
++        while (!s.isEmpty()){
++            Cat cat = CatFactory.getCatByKey(s);
++            System.out.println(cat);
++            s = reader.readLine();
++        }
+         //напишите тут ваш код
+     }
+ 
+Index: 2.JavaCore/src/com/javarush/task/task14/task1413/Mouse.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- 2.JavaCore/src/com/javarush/task/task14/task1413/Mouse.java	(revision )
++++ 2.JavaCore/src/com/javarush/task/task14/task1413/Mouse.java	(revision )
+@@ -0,0 +1,13 @@
++package com.javarush.task.task14.task1413;
++
++/**
++ * Created by Озеров on 05.06.2017.
++ */
++public class Mouse implements CompItem {
++
++    @Override
++    public String getName() {
++        return "Mouse";
++
++    }
++}
+Index: 2.JavaCore/src/com/javarush/task/task14/task1413/Computer.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- 2.JavaCore/src/com/javarush/task/task14/task1413/Computer.java	(revision )
++++ 2.JavaCore/src/com/javarush/task/task14/task1413/Computer.java	(revision )
+@@ -0,0 +1,29 @@
++package com.javarush.task.task14.task1413;
++
++/**
++ * Created by Озеров on 05.06.2017.
++ */
++public class Computer {
++    private Keyboard keyboard;
++    private Mouse mouse;
++    private Monitor monitor;
++
++    public Keyboard getKeyboard() {
++        return keyboard;
++    }
++
++    public Mouse getMouse() {
++        return mouse;
++    }
++
++    public Monitor getMonitor() {
++        return monitor;
++    }
++
++    public Computer(Keyboard keyboard, Mouse mouse, Monitor monitor) {
++
++        this.keyboard = keyboard;
++        this.mouse = mouse;
++        this.monitor = monitor;
++    }
++}
+Index: 2.JavaCore/src/com/javarush/task/task14/task1413/Monitor.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- 2.JavaCore/src/com/javarush/task/task14/task1413/Monitor.java	(revision )
++++ 2.JavaCore/src/com/javarush/task/task14/task1413/Monitor.java	(revision )
+@@ -0,0 +1,12 @@
++package com.javarush.task.task14.task1413;
++
++/**
++ * Created by Озеров on 05.06.2017.
++ */
++public class Monitor implements CompItem {
++
++    @Override
++    public String getName() {
++        return "Monitor";
++    }
++}
+Index: 2.JavaCore/src/com/javarush/task/task14/task1413/CompItem.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- 2.JavaCore/src/com/javarush/task/task14/task1413/CompItem.java	(revision )
++++ 2.JavaCore/src/com/javarush/task/task14/task1413/CompItem.java	(revision )
+@@ -0,0 +1,8 @@
++package com.javarush.task.task14.task1413;
++
++/**
++ * Created by Озеров on 05.06.2017.
++ */
++public interface CompItem {
++    public String getName();
++}
+Index: 2.JavaCore/src/com/javarush/task/task14/task1413/Keyboard.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- 2.JavaCore/src/com/javarush/task/task14/task1413/Keyboard.java	(revision )
++++ 2.JavaCore/src/com/javarush/task/task14/task1413/Keyboard.java	(revision )
+@@ -0,0 +1,12 @@
++package com.javarush.task.task14.task1413;
++
++/**
++ * Created by Озеров on 05.06.2017.
++ */
++public class Keyboard implements CompItem {
++
++    @Override
++    public String getName() {
++        return "Keyboard";
++    }
++}
