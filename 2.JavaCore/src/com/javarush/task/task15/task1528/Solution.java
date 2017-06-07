@@ -21,13 +21,9 @@ public class Solution {
     public static class Hrivna extends Money {
         public double amount = 123d;
 
-        @Override
-        Money getMoney() {
-            return null;
-        }
-
-        public Hrivna getAmount() {
+        public Hrivna getMoney() {
             return this;
         }
+        public Object getAmount() {return amount;}
     }
 }
