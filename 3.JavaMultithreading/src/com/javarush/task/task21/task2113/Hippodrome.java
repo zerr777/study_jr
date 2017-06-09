@@ -8,6 +8,22 @@ import java.util.List;
  * Created by Озеров on 09.06.2017.
  */
 public class Hippodrome {
+
+    public void run(){
+        for (int i = 1; i <= 100; i++) {
+            move();
+            print();
+            try {
+                Thread.sleep(200);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+        }
+    }
+    public void move(){}
+    public void print(){}
+
     static Hippodrome game;
 
     public Hippodrome(List<Horse> horses) {
